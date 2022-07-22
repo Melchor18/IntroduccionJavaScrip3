@@ -309,6 +309,16 @@ function descendente() {
     actualizarLista();
 
 }
+function recuentoAscendente() {
+    orden = "recuentoAscendente";
+    actualizarLista();
+
+}
+function recuentoDescendente() {
+    orden = "recuentoDescendente";
+    actualizarLista();
+
+}
 
 function actualizarLista() {
 
@@ -332,9 +342,35 @@ function actualizarLista() {
             }
         )
     }
+    
+    
+    else if  (orden === "recuentoAscendente") {
+        listaOrdenada = datos.sort(
+            (a, b) => {
+                if (a.recuento < b.recuento) return -1;
+                if (a.recuento > b.recuento) return 1;
+                return 0;
+                
+
+            }
+
+        )
+    }
+    
+    else if (orden === "recuentoDescendente") {
+        listaOrdenada = datos.sort(
+            (a, b) => {
+                if (a.recuento > b.recuento) return -1;
+                if (a.recuento < b.recuento) return 1;
+                return 0;
+
+            }
+        )
+    }
     else {
         listaOrdenada = datos
     }
+
 
     let textoBuscado = document.getElementById("barra-busqueda").value;
 
